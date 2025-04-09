@@ -285,28 +285,31 @@ fim_programa:
 undo:
     addi sp, sp, -8
     sw ra, 0(sp)
-    
-    lw t0, atual
-    beqz t0, fim_undo
-    
-    # Pega o nó anterior
-    lw t1, 4(t0)
-    la t0,atual
-    sw a0, 0(t0)
-    
-    # Imprime valor anterior
+
+    lw t0, atual          # t0 = endereço do nó atual
+    beqz t0, fim_undo     # Se atual for 0, não há nada
+
+    lw t1, 4(t0)          # t1 = endereço do nó anterior
+    li t2, -1
+    beq t1, t2, fim_undo  # Se for NULL, não há operação anterior
+
+    lw a3, 0(t1)          # Atualiza a3 com resultado anterior
+    la t0, atual
+    sw t1, 0(t0)          # atual = anterior
+
+    # Imprime mensagem
     li a7, 4
     la a0, undo_msg
     ecall
-    
+
     li a7, 1
-    lw a0, 0(t1)
+    mv a0, a3
     ecall
-    
+
     li a7, 4
     la a0, newline
     ecall
-	
+
 fim_undo:
     lw ra, 0(sp)
     addi sp, sp, 8
