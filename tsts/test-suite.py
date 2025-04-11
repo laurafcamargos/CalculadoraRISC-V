@@ -2,6 +2,7 @@
 # Requisito: java e rars
 
 import sys
+import os
 import subprocess
 import re
 
@@ -27,6 +28,8 @@ flags = ['nc', 'se1', 'ae1', 'me']          # nc: evita impressão de copyright 
 
 res = []
 
+abs_dir = os.path.dirname(__file__)
+
 # Testa um caso individual
 # tst_name: nome dos arquivos tst_name.in (entrada) e tst_name.out (saida) para comparar os casos
 # 
@@ -38,7 +41,7 @@ def do_tst_case(tst_name):
     print('case: ' + tst_name + '...')
     with open(tst_name + '.in', 'r') as file:
         # Roda o programa calculadora.rars por meio da interface de linha de comando do rars
-        proc = subprocess.Popen([command] + flags + ['calculadora.asm'], stdin=file, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        proc = subprocess.Popen([command] + flags + [abs_dir + '/../calculadora.asm'], stdin=file, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         
         output, err = proc.communicate()
 
@@ -69,12 +72,12 @@ def do_tst_case(tst_name):
 # Testa todos os casos sobre a corretude dos calculos (sem erros)
 def do_calc_tsts():
     for k in range(1,9):
-        do_tst_case('tsts/calc-tsts/tst' + str(k).zfill(2))
+        do_tst_case(abs_dir + '/calc-tsts/tst' + str(k).zfill(2))
 
 # Testa todos os casos sobre a funcionalidade undo e alguns erros
 def do_undo_tsts():
     for k in range(1,4):
-        do_tst_case('tsts/undo-tsts/tst' + str(k).zfill(2))  
+        do_tst_case(abs_dir + '/undo-tsts/tst' + str(k).zfill(2))  
 
 if __name__ == '__main__':
     if len(sys.argv) <= 1:
