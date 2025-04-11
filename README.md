@@ -37,7 +37,7 @@ Digite a operação (+, -, *, /, u, f): f
 Program terminated by calling exit
 ```
 
-## Suíte de testes
+## Switch de testes
 **Requisitos:** python e simulador RARS (executável .jar)
 
 Para testar o funcionamento correto do programa, foi desenvolvido um suíte de testes usando scripts em python. Estes scripts usam o executável .jar do simulador RARS para realizar seus testes. Para rodar a seção padrão de testes, basta executar 
