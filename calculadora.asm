@@ -324,7 +324,7 @@ operation_done:
 #-----------------------------------------------------------
 # Função: undo_operation
 # Descrição: Desfaz a última operação.
-#           Se for a última, volta o programa ao estado inicial
+#            Se for a última, volta o programa ao estado inicial
 #-----------------------------------------------------------
 undo_operation:
     la t0, list_head
