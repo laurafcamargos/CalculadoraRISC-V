@@ -6,4 +6,5 @@ relatorio/*.fdb_latexmk
 relatorio/*.fls
 relatorio/*.log
 relatorio/*.synctex.gz
+relatorio/*.out
 
