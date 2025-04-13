@@ -1,0 +1,22 @@
+Digite um número: Digite a operação (+, -, *, /, u, f): Digite um número: Resultado: 15
+Digite a operação (+, -, *, /, u, f): Digite um número: Resultado: 45
+Digite a operação (+, -, *, /, u, f): Digite um número: Resultado: 41
+Digite a operação (+, -, *, /, u, f): Digite um número: Resultado: 20
+Digite a operação (+, -, *, /, u, f): Digite um número: Erro: divisão por zero
+Digite a operação (+, -, *, /, u, f): Digite um número: Resultado: 22
+Digite a operação (+, -, *, /, u, f): Operação desfeita. Resultado anterior: 20
+Digite a operação (+, -, *, /, u, f): Operação desfeita. Resultado anterior: 41
+Digite a operação (+, -, *, /, u, f): Operação desfeita. Resultado anterior: 45
+Digite a operação (+, -, *, /, u, f): Operação desfeita. Resultado anterior: 15
+Digite a operação (+, -, *, /, u, f): Operação desfeita. Nenhum resultado salvo.
+Digite um número: Erro: valor não é um número inteiro válido
+Digite um número: Digite a operação (+, -, *, /, u, f): Digite um número: Resultado: -10
+Digite a operação (+, -, *, /, u, f): Digite um número: Resultado: 3
+Digite a operação (+, -, *, /, u, f): Operação desfeita. Resultado anterior: -10
+Digite a operação (+, -, *, /, u, f): Erro: operação inválida
+Digite a operação (+, -, *, /, u, f): Digite um número: Erro: valor não é um número inteiro válido
+Digite um número: Erro: valor não é um número inteiro válido
+Digite um número: Erro: valor não é um número inteiro válido
+Digite um número: Erro: valor não é um número inteiro válido
+Digite um número: Resultado: -3
+Digite a operação (+, -, *, /, u, f): 

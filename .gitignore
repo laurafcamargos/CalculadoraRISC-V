@@ -1,0 +1,9 @@
+.asm-lsp.toml
+create_test_files.sh
+relatorio/*.aux
+relatorio/*.dvi
+relatorio/*.fdb_latexmk
+relatorio/*.fls
+relatorio/*.log
+relatorio/*.synctex.gz
+

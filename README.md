@@ -1,66 +1,105 @@
-# CalculadoraRISC-V
-Repositório para guardar relatório e código em assembly (em RISC-V) do primeiro trabalho prático da disciplina SSC0902 - Organização e Arquitetura de Computadores.
+# README - Calculadora Sequencial em RISC-V
 
-## Descrição do funcionamento
-Este projeto é de uma calculadora que realiza operações de maneira sequencial, ou seja, realiza operações conforme a ordem em que são inseridas, e mantém uma lista dos resultados obtidos. Esta calculadora suporta os seguintes comandos:
-- +: adição
-- -: subtração
-- *: multiplicação
-- /: divisão
-- u: undo --- volta ao resultado anterior
-- f: termina o programa
+## Descrição
 
-Especificações mais detalhadas sobre o projeto se encontram no arquivo relatorio.pdf.
+Este projeto implementa uma calculadora sequencial em Assembly RISC-V, conforme especificado no trabalho prático da disciplina SSC0902 - Organização e Arquitetura de Computadores. A calculadora realiza operações aritméticas básicas com **números inteiros** (adição, subtração, multiplicação e divisão) e oferece a funcionalidade de desfazer uma operação.
 
-### Exemplo de execução
-```java -jar caminho/para/rars.jar nc calculadora.asm```
+## Funcionalidades
+
+- **Operações Aritméticas**:
+  - `+`: Adição
+  - `-`: Subtração
+  - `*`: Multiplicação
+  - `/`: Divisão inteira (com tratamento de divisão por zero)
+- **Operações Especiais**:
+  - `u`: Desfaz a última operação (undo)
+  - `f`: Finaliza a execução da calculadora
+- **Tratamento de Erros**:
+  - Divisão por zero
+  - Operação inválida
+  - Número inválido (float ou string)
+  - Tentativa de desfazer operação quando não há operações anteriores
+
+## Estrutura do Código
+
+- **`calculadora.s`**: Contém o código Assembly RISC-V da calculadora.
+- **Lista Encadeada**: Utilizada para armazenar os resultados das operações e permitir a funcionalidade de undo.
+- **Makefile**: Facilita a execução e teste do programa.
+
+## Como Executar
+
+### Pré-requisitos
+
+- Java instalado (para executar o RARS)
+- Comando `diff` (para comparação nos casos de teste)
+
+### Comandos
+
+1. **Compilar e Executar**:
+
+   ```bash
+   make
+   ```
+
+   - Isso executará o programa no RARS.
+
+2. **Executar Testes**:
+
+   ```bash
+   make test-all
+   ```
+
+   - Executa todos os testes disponíveis na pasta `tests/`.
+
+3. **Executar um Teste Específico**:
+
+   ```bash
+   make test TEST_NUM=<número_do_teste>
+   ```
+
+   - Substitua `<número_do_teste>` pelo número do teste desejado (ex: `1` para `test1.in`).
+
+4. **Limpar Arquivos Temporários**:
+   ```bash
+   make clean
+   ```
+
+## Exemplo de Uso
+
+1. Inicie a calculadora:
+   ```bash
+   make
+   ```
+2. Siga os prompts para inserir números e operações:
+   - Digite um número quando solicitado.
+   - Digite a operação desejada (`+`, `-`, `*`, `/`, `u`, ou `f`).
+3. O resultado será exibido após cada operação válida.
+
 ```
-RARS 1.6  Copyright 2003-2019 Pete Sanderson and Kenneth Vollmar
-
 Digite um número: 10
-Digite a operação (+, -, *, /, u, f): +
-Digite um número: 20
-Resultado: 30
+Digite a operação (+, -, *, /, u, f): -
+Digite um número: 2
+Resultado: 8
 Digite a operação (+, -, *, /, u, f): *
-Digite um número: 3
-Resultado: 90
+Digite um número: 0
+Resultado: 0
 Digite a operação (+, -, *, /, u, f): u
-Operação desfeita. Resultado anterior: 30
+Operação desfeita. Resultado anterior: 8
 Digite a operação (+, -, *, /, u, f): /
 Digite um número: 3
-Resultado: 10
-Digite a operação (+, -, *, /, u, f): /
-Digite um número: -2
-Resultado: -5
+Resultado: 2
 Digite a operação (+, -, *, /, u, f): f
-
-Program terminated by calling exit
 ```
 
-## Switch de testes
-**Requisitos:** python e simulador RARS (executável .jar)
+## Relatório
 
-Para testar o funcionamento correto do programa, foi desenvolvido um suíte de testes usando scripts em python. Estes scripts usam o executável .jar do simulador RARS para realizar seus testes. Para rodar a seção padrão de testes, basta executar 
+O relatório do projeto inclui:
 
-```
-python tsts/test-suite.py
-```
+- Explicação do funcionamento do código.
+- Decisões de implementação.
+- Prints de tela demonstrando a execução.
+- Dificuldades encontradas durante o desenvolvimento.
 
-Para executar um teste singular, basta colocar
+---
 
-```
-python tsts/test-suite.py <nome-teste .in e .out>
-```
-
-*ex: `python tsts/test-suite.py dir/tst1` e compara resultados obtidos pelo programa com as entradas em `dir/tst1.in` e as compara com as saídas esperadas em `dir/tst1.out`.*
-
-Para transformar uma expressão aritmética (com ordem de resolução da esquerda para a direita) em um caso de teste, basta executar
-
-```
-python tsts/expr-to-input.py <expr1> <expr2> ...
-```
-
-*Obs. As operações não devem usar parênteses e nem possuirem espaço*
-
-
-Os resultados esperados (arquivos .out) gerados pelo programa terminam com uma nova linha vazia, é necessário removê-las antes de botá-las no suíte de testes
+Este projeto foi desenvolvido como parte da disciplina SSC0902 - Organização e Arquitetura de Computadores, sob a orientação da professora Sarita Mazzini Bruschi e da monitora Catarina Moreira Lima.
