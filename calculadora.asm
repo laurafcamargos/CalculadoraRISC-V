@@ -23,8 +23,8 @@ list_head: .word 0 # Ponteiro para o primeiro elemento da lista
 
 # Estrutura de cada nó da lista
 # Offset | Tamanho | Conteúdo
-# 0-3   | 4 bytes | Resultado da operação atual (inteiro)
-# 4-7   | 4 bytes | Ponteiro para o próximo nó ou NULL
+# 0-3    | 4 bytes | Resultado da operação atual (inteiro)
+# 4-7    | 4 bytes | Ponteiro para o próximo nó ou NULL
 
 # Registradores:
 # s0 : resultado atual
